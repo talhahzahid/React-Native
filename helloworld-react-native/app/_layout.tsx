@@ -5,8 +5,16 @@ import React from 'react'
 
 const _layout = () => {
   return (
-    <View>
-      <Text>_layout</Text>
+    <View style={{
+      backgroundColor: 'gray',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Text style={{
+        color: 'white',
+        fontSize: 30
+      }}>Home</Text>
     </View>
   )
 }
