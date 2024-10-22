@@ -14,7 +14,7 @@ const _layout = () => {
       <Text style={{
         color: 'white',
         fontSize: 30
-      }}>Home</Text>
+      }}>Hello World</Text>
     </View>
   )
 }
