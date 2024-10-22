@@ -50,12 +50,12 @@ const index = () => {
    </View>
    <View style={{marginTop:30}}>
    <TouchableOpacity style={styles.button2} onPress={click}>
-        <Text style={styles.btn2text}><AntDesign name="google" size={24} color="black" />Continue With Google</Text>
+        <Text style={styles.btn2text}> <AntDesign name="google" size={24} color="black" />Continue With Google</Text>
       </TouchableOpacity>
    </View>
    <View style={{marginTop:10}} >
    <TouchableOpacity style={styles.button2} onPress={click}>
-        <Text style={styles.btn2text}><FontAwesome5 name="facebook" size={24} color="black" />Continue with Facebook</Text>
+        <Text style={styles.btn2text}><FontAwesome5 name="facebook" size={24} color="blue" />Continue with Facebook</Text>
       </TouchableOpacity>
       </View>
       <View  style={{marginTop:10}} >
@@ -93,13 +93,17 @@ const styles = StyleSheet.create({
     borderRadius:20,
   },
   button2: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#fff',
+    borderRadius: 5,
     padding: 10,
-    borderRadius:40,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap:20
   },
   btn2text:{
-    // margin:10,
-    alignItems:'center'
+    // marginLeft: 10,
+    fontSize: 16,
+    color: 'black',
   }
 });
