@@ -1,10 +1,11 @@
 
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+// import { Image } from 'expo-image';
 
 const index = () => {
   const click = () =>{
@@ -63,6 +64,15 @@ const index = () => {
         <Text style={styles.btn2text}><FontAwesome name="apple" size={24} color="black" />Continue with Apple</Text>
       </TouchableOpacity>
    </View>
+   <View style={styles.container4}>
+      <Image
+        style={styles.image}
+        source={require('@assets/images/login.png')}
+        // contentFit="cover"
+        // transition={1000}
+         resizeMode="cover"
+      />
+    </View>
     </SafeAreaView>
   )
 }
@@ -105,5 +115,16 @@ const styles = StyleSheet.create({
     // marginLeft: 10,
     fontSize: 16,
     color: 'black',
-  }
+  },
+  container4: {
+    // flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    // flex: 1,
+    // width: '100%',
+    backgroundColor: '#0553',
+  },
 });
