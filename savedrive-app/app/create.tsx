@@ -4,7 +4,7 @@ import React from 'react'
 const Create = () => {
   return (
     <View>
-      <Text>Create</Text>
+      <Text className='text-center text-xl mt-4'>Location</Text>
     </View>
   )
 }
