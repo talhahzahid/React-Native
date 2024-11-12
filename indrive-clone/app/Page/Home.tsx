@@ -19,23 +19,22 @@ interface SinglePlace {
 }
 
 export default function Home() {
-  const [location, setLocation] = useState<any>(null); // Current location
+  const [location, setLocation] = useState<any>(null); 
   const [errorMsg, setErrorMsg] = useState<any>(null);
-  const [search, setSearch] = useState<any>(''); // Search query
-  const [places, setPlaces] = useState<null | AllPlaces[]>(null); // List of places from the search
-  const [singlesearchPlace, setsinglesearchPlace] = useState<null | SinglePlace>(null); // Selected place
-  const [region, setRegion] = useState<any>(null); // Region of the map
-  const [direction, setDirection] = useState<boolean>(false); // Toggle direction (polyline) visibility
+  const [search, setSearch] = useState<any>('');
+  const [places, setPlaces] = useState<null | AllPlaces[]>(null); 
+  const [singlesearchPlace, setsinglesearchPlace] = useState<null | SinglePlace>(null); 
+  const [region, setRegion] = useState<any>(null); 
+  const [direction, setDirection] = useState<boolean>(false); 
 
-  // Handle place selection
+  
   const singlePlace = (item: any) => {
-    // Set the selected place as the destination
     setsinglesearchPlace({
       latitude: item.geocodes.main.latitude,
       longitude: item.geocodes.main.longitude,
     });
 
-    // Update the region of the map to focus on the selected place
+   
     setRegion({
       latitude: item.geocodes.main.latitude,
       longitude: item.geocodes.main.longitude,
@@ -43,11 +42,11 @@ export default function Home() {
       longitudeDelta: 0.005,
     });
 
-    // Hide the places list after selection
+  
     setPlaces(null);
   };
 
-  // Search for places based on user input
+ 
   const searchPlaces = () => {
     const options = {
       method: 'GET',
@@ -63,12 +62,12 @@ export default function Home() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setPlaces(res.results); // Populate the places list
+        setPlaces(res.results); 
       })
       .catch((err) => console.error(err));
   };
 
-  // Get the user's current location on initial load
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -102,10 +101,10 @@ export default function Home() {
         {location ? (
           <MapView
             style={styles.map}
-            region={region} // Update the region based on current location or selected place
+            region={region} 
             onRegionChangeComplete={setRegion}
           >
-            {/* Marker for current location */}
+            
             <Marker
               coordinate={{
                 latitude: location.coords.latitude,
@@ -114,7 +113,7 @@ export default function Home() {
               title="You are here"
             />
 
-            {/* Marker for the searched place */}
+           
             {singlesearchPlace && (
               <Marker
                 coordinate={{
@@ -125,7 +124,7 @@ export default function Home() {
               />
             )}
 
-            {/* Polyline for the route */}
+          
             {singlesearchPlace && direction && (
               <Polyline
                 coordinates={[
@@ -143,14 +142,14 @@ export default function Home() {
       </View>
 
       <View style={styles.bottom}>
-        {/* Icons for transportation methods */}
+        
         <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flexWrap: 'nowrap', height: 70 }}>
           <MaterialIcons name="directions-bike" size={40} color="white" style={{ marginHorizontal: 30 }} />
           <MaterialCommunityIcons name="rickshaw" size={40} color="white" style={{ marginHorizontal: 30 }} />
           <Ionicons name="car-sport-sharp" size={40} color="white" style={{ marginHorizontal: 30 }} />
         </View>
 
-        {/* Search Input and Buttons aligned horizontally */}
+        
         <View style={styles.searchContainer}>
           <TextInput
             style={styles.input}
@@ -164,7 +163,7 @@ export default function Home() {
           </TouchableOpacity>
         </View>
 
-        {/* Horizontal Buttons for Search and Direction */}
+    
         <View style={styles.buttonContainer}>
           {/* <TouchableOpacity style={styles.button} onPress={searchPlaces}>
             <Text>Search</Text>
@@ -176,7 +175,7 @@ export default function Home() {
           </TouchableOpacity>
         </View>
 
-        {/* Search Results */}
+      
         {places && (
           <FlatList
             data={places}

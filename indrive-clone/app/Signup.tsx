@@ -14,7 +14,7 @@ const signup = () => {
   const router = useRouter();
 
   const register = () => {
-    setLoading(true); // Start loading
+    setLoading(true); 
     console.log(email);
     console.log(password);
 
@@ -29,7 +29,7 @@ const signup = () => {
         console.log(errorMessage);
       })
       .finally(() => {
-        setLoading(false); // Stop loading once the operation is complete
+        setLoading(false); 
       });
 
     setName('');
@@ -67,7 +67,7 @@ const signup = () => {
             className='border border-[#c1f11d]'
           />
           
-          {/* Show loading indicator or Register button based on loading state */}
+          
           {loading ? (
             <ActivityIndicator size="large" color="#c1f11d" />
           ) : (
